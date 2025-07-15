@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,19 +7,291 @@
     <link rel="stylesheet" href="./css/all.min.css">
     <link rel="stylesheet" href="./productDetails/ProductDetails.css">
     <link rel="stylesheet" href="./css/css.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="Cart/cart.css">
+    <link rel="icon" href="imgs/logo.png">
+    <title>منصة سلة</title>
 </head>
 <body>
     
-    <nav>
-      <ul>
-        <li><button href="#" onclick="renderDetails()">Details</button></li>
-      </ul>
-    </nav>
+      <nav>
+      <div class="py-2">
+        <!-- First Nav - Top Bar -->
+        <div class="firstNav basic-color p-2">
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-12 col-md-5">
+                <div class="d-flex flex-nowrap align-items-center">
+                  <span class="me-2">
+                    <i
+                      class="fa fa-phone-volume text-success"
+                      aria-hidden="true"
+                    ></i>
+                    +966556754472
+                  </span>
+                  <span class="mx-1 d-none d-sm-inline">|</span>
+                  <span>
+                    <i
+                      class="fa-regular fa-envelope text-success"
+                      aria-hidden="true"
+                    ></i>
+                    support@salla.sa
+                  </span>
+                </div>
+              </div>
 
+              <!-- Second Section - Links -->
+              <div class="col-12 col-md-7 mt-2 mt-md-0">
+                <div
+                  class="d-flex flex-nowrap align-items-center justify-content-md-end"
+                >
+                  <span class="me-2">
+                    <img
+                      src="imgs/icon.png"
+                      alt="icon image"
+                      class="img-fluid"
+                      style="max-height: 16px"
+                    />
+                    العربية - رس
+                  </span>
+                  <span class="mx-1 d-none d-sm-inline">|</span>
+                  <span class="me-2">المفضلة</span>
+                  <span class="mx-1 d-none d-sm-inline">|</span>
+                  <span class="me-2">سياسة الإستبدال أو الاسترجاع</span>
+                  <span class="mx-1 d-none d-sm-inline">|</span>
+                  <span>تواصل معنا</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="secondNav row align-items-center py-3">
+            <!-- Logo - Always visible -->
+            <div class="col-4 col-md-3 col-lg-2 d-flex align-items-center">
+              <span>
+                <img
+                  src="imgs/logo.png"
+                  alt="log image"
+                  class="img-fluid"
+                  style="max-height: 40px"
+                />
+              </span>
+              <h3 class="d-inline ms-2 mb-0">
+                متجر <br class="d-none d-sm-block" />سلة
+              </h3>
+            </div>
+
+            <!-- Search Bar - Always visible -->
+            <div class="col-12 col-sm-8 col-md-6 col-lg-5 mt-2 mt-sm-0">
+              <div class="position-relative w-100">
+                <input
+                  type="search"
+                  class="form-control w-100"
+                  placeholder="ابحث عما تريد"
+                />
+                <i
+                  aria-hidden="true"
+                  class="fa fa-search position-absolute start-0 top-50 p-1 translate-middle-y ms-3"
+                ></i>
+              </div>
+            </div>
+
+            <!-- User & Cart Section - Always visible -->
+            <div class="col-8 col-md-3 col-lg-5 mt-2 mt-md-0">
+              <div class="d-flex justify-content-end align-items-center">
+                <!-- User Account -->
+                <div class="d-flex align-items-center me-2 me-lg-3">
+                  <span class="px-0">
+                    <i
+                      class="fa fa-user basic-color p-2 rounded-circle"
+                      aria-hidden="true"
+                    ></i>
+                  </span>
+                  <span class="px-0 ms-2">
+                    <span class="fw-light">مرحبا بك</span>
+                    <p class="mb-0 d-none d-md-block">تسجيل الدخول</p>
+                  </span>
+                </div>
+
+                <!-- Shopping Cart -->
+                <div class="d-flex align-items-center me-2 me-lg-0">
+                  <span class="px-0">
+                    <i
+                      class="fa fa-shopping-cart basic-color p-2 rounded-circle"
+                      aria-hidden="true"
+                    ></i>
+                  </span>
+                  <span class="px-0 ms-2">
+              <a class="nav-link " href="#" onclick="renderCart()">سلة مشتريات</a>
+
+                     
+                    <p class="mb-0" id="numOfItem">1,200رس</p>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lastNav bg-black">
+          <div class="container text-white p-2">
+            <div class="row d-none d-lg-flex">
+              <div class="col-lg-1">كل المنتجات</div>
+              <div class="col-lg-1">الكترونيات</div>
+              <div class="col-lg-1">موبيلات</div>
+              <div class="col-lg-1 p-0">كاميرات مراقبة</div>
+              <div class="col-lg-1 p-0">سماعات رقمية</div>
+              <div class="col-lg-1 p-0">كاميرات رقمية</div>
+              <div class="col-lg-1 p-0">اكسسوارات</div>
+              <div class="col-lg-1 p-0">شاشات كمبيوتر</div>
+              <div class="col-lg-1">سماعات</div>
+              <div class="col-lg-1">الكترونيات</div>
+            </div>
+
+            <div class="d-lg-none">
+              <select class="form-select bg-black text-white border-0">
+                <option selected>كل المنتجات</option>
+                <option>الكترونيات</option>
+                <option>موبيلات</option>
+                <option>كاميرات مراقبة</option>
+                <option>سماعات رقمية</option>
+                <option>كاميرات رقمية</option>
+                <option>اكسسوارات</option>
+                <option>شاشات كمبيوتر</option>
+                <option>سماعات</option>
+                <option>الكترونيات</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
     <div id="root"></div>
+     <footer>
+      <div class="first basic-color">
+        <div class="container">
+          <div class="row d-flex align-items-center">
+            <div class="col-md-3 d-flex align-items-center">
+              <i
+                class="fa fa-envelope fs-3 p-3 bg-success-subtle text-success-emphasis rounded-circle"
+                aria-hidden="true"
+              ></i>
+              <span class="d-flex flex-column">
+                <span class="fw-bold">الاشتراك فى النشرة البريدية</span>
+                <p class="m-0">
+                  انضم الآن واحصل على خصم 10٪ على مشترياتك التالية!
+                </p>
+              </span>
+            </div>
+
+            <div class="col-md-6">
+              <p>يمكنك إلغاء الاشتراك في أي لحظة</p>
+              <span class="d-flex px-0">
+                <input
+                  type="search"
+                  class="form-control w-75"
+                  name=""
+                  id=""
+                  placeholder="ادخل البريد الالكتروني"
+                />
+                <button class="btn btn-success me-1">اشتراك</button>
+              </span>
+            </div>
+            <div class="col-md-3">
+              <p>تطبيقات الجوال</p>
+              <img src="imgs/android.png" alt="android image" />
+              <img src="imgs/android.png" alt="android image" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="second">
+        <div class="container p-3">
+          <div class="row gy-1">
+            <div class="col-md-3">
+              <h4>عن متجرنا</h4>
+              <p>
+                متجر سلة من افضل المتاجر التى تقوم ببيع المنتجات الرقمية بأفضل
+                الاسعار وماركات عالمية تسوق الان واطلع على المزيد من التصاميم
+                واستمتع بأفضل العروض والخصومات
+              </p>
+            </div>
+            <div class="col-md-2">
+              <h4>حسابي</h4>
+              <p><img src="imgs/arrow.png" alt="arrow" />حسابي</p>
+              <p><img src="imgs/arrow.png" alt="arrow" />طلباتي</p>
+              <p><img src="imgs/arrow.png" alt="arrow" />سلة المشتريات</p>
+              <p><img src="imgs/arrow.png" alt="arrow" />المفضلة</p>
+            </div>
+            <div class="col-md-2">
+              <h4>روابط مهمة</h4>
+              <p><img src="imgs/arrow.png" alt="arrow image" />من نحن</p>
+              <p>
+                <img src="imgs/arrow.png" alt="arrow image" />سياسية الخصوصية
+              </p>
+              <p>
+                <img src="imgs/arrow.png" alt="arrow image" />الشروط والاحكام
+              </p>
+              <p><img src="imgs/arrow.png" alt="arrow image" />الدعم الفنى</p>
+            </div>
+            <div class="col-md-2">
+              <h4>تواصل معنا</h4>
+              <p>
+                <img
+                  src="imgs/arrow.png"
+                  alt="arrow image"
+                />واتساب: 009612345678932
+              </p>
+              <p>
+                <img src="imgs/arrow.png" alt="arrow image" />موبايل
+                : 009612345678932
+              </p>
+              <p>
+                <img src="imgs/arrow.png" alt="arrow image" />البريد
+                : https://salla.sa
+              </p>
+            </div>
+            <div class="col-md-3">
+              <i
+                class="fa-brands icon fa-facebook-f p-2 mx-1 text-secondary rounded-circle basic-color"
+                aria-hidden="true"
+              ></i>
+              <i
+                class="fa-brands icon fa-instagram p-2 m-1 text-secondary rounded-circle basic-color"
+                aria-hidden="true"
+              ></i>
+              <i
+                class="fa-brands icon fa-twitter p-2 m-1 text-secondary rounded-circle basic-color"
+                aria-hidden="true"
+              ></i
+              ><i
+                class="fa-brands icon fa-snapchat p-2 m-1 text-secondary rounded-circle basic-color"
+                aria-hidden="true"
+              ></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="last bg-black">
+        <div class="container p-4 text-white">
+          <div class="row">
+            <div class="col-md-6"><p>الحقوق محفوظة لمنصة سلة © 2023</p></div>
+            <div class="col-md-6">
+              <span
+                ><img src="imgs/vat.png" alt="vat image" /><span
+                  >الرقم الضريبي:4333222</span
+                ></span
+              >
+              <img src="imgs/Payment.png" alt="payment image" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
 
     <script src="./js/js.js"></script>
+    <script src="./Cart/cart.js"></script>
     <script src="./js/bootstrap.bundle.min.js"></script>
     <script src="./productDetails/ProductDetails.js"></script>
 </body>
