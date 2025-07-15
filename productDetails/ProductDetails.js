@@ -216,12 +216,11 @@ thumbs.forEach((thumb) => {
   });
 }
 
-fetch("p-details.html")
+fetch("../productDetails/p-details.html")
   .then((res) => res.text())
   .then((html) => {
     document.getElementById("nada-section").innerHTML = html;
   });
-
 function renderDetails() {
   fetch("../productDetails/ProductDetails.html")
     .then((response) => response.text())
