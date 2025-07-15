@@ -1,4 +1,4 @@
-  body {
+    body {
             font-family: 'Cairo', sans-serif;
             background-color: #f9f9f9;
             padding: 30px;
@@ -33,10 +33,11 @@
         }
 
         .section-content h4 {
-            color: #222;
-            font-weight: bold;
-            margin-top: 30px;
-        }
+    display: inline;
+    color: #222;
+    font-weight: bold;
+    margin-top: 30px;
+}
 
         .section-content p {
             line-height: 1.8;
@@ -48,6 +49,7 @@
             border-radius: 10px;
             margin: 10px 0;
         }
+
 
         .double-images {
             display: flex;
@@ -83,7 +85,30 @@
             border-width: 0 !important;
         }
 
+/*  */
+.date {
+    text-align: end;
+    width: 50vw;
+}
+.review-box img {
+    width: 70px;
+    height: 70px;
+}
+/* 
+ */
+  .stars {
+      display: inline-flex;
+      font-size: 40px;
+      cursor: pointer;
+    }
 
+    .star {
+      color: #ccc;
+      transition: color 0.3s;
+    }
+
+    .star.active {
+      color: #ffc107;}
         @media (max-width: 768px) {
             .image-right {
                 float: none;
