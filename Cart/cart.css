@@ -1,0 +1,22 @@
+ body {
+            background-color: #f8f9fa;
+        }
+        .card-registration-2 {
+            border-radius: 15px;
+            background-color: white;
+        }
+        .border-1 {
+            border-width: 1px !important;
+        }
+        .btn-outline-success {
+            border-color: #198754;
+            color: #198754;
+        }
+        .btn-outline-success:hover {
+            background-color: #198754;
+            color: white;
+        }
+        .disabled {
+            opacity: 0.65;
+            cursor: not-allowed;
+        }
