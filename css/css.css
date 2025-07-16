@@ -1,0 +1,29 @@
+ span{
+    padding: 1rem;
+ }
+ .basic-color{
+    background-color: rgba(248, 248, 248, 1);
+ }
+ .icon:hover{
+    color:rgba(98, 208, 182, 1) !important;
+    border:1px solid rgba(98, 208, 182, 1);
+ }
+ .second p{
+     color:rgba(102, 102, 102, 1);
+ }
+ @media (min-width: 1025px) {
+.h-custom {
+height: 100vh !important;
+}
+}
+
+.card-registration .select-input.form-control[readonly]:not([disabled]) {
+font-size: 1rem;
+line-height: 2.15;
+padding-left: .75em;
+padding-right: .75em;
+}
+
+.card-registration .select-arrow {
+top: 13px;
+}

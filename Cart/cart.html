@@ -1,0 +1,77 @@
+   <section>
+        <div class="container p-3">
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-12">
+                    <div class="card-registration-2">
+                        <div class="p-0">
+                            <div class="row g-0">
+                                <div class="col-lg-8">
+                                    <div class="px-4">
+                                        <div id="cart-items-container" class="row mb-4 rounded-2 d-flex justify-content-between align-items-center border-1 border-black shadow cart-item">
+                                            <div class="col-md-2 col-lg-2 col-xl-2">
+                                                <img id="item-image" src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img5.webp" class="img-fluid rounded-3" alt="Cotton T-shirt"/>
+                                            </div>
+                                            <div class="col-md-3 col-lg-3 col-xl-3">
+                                                <h6 class="text-muted" id="item-category">Shirt</h6>
+                                                <h6 class="mb-0" id="item-name">Cotton T-shirt</h6>
+                                            </div>
+                                            <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                                                <button id="quantity-minus" class="btn btn-link px-2">
+                                                    <i class="fas fa-minus text-secondary"></i>
+                                                </button>
+                                                <input id="quantity-input" min="1" name="quantity" value="1" type="number" class="form-control form-control-sm"/>
+                                                <button id="quantity-plus" class="btn btn-link px-2">
+                                                    <i class="fas fa-plus text-secondary"></i>
+                                                </button>
+                                            </div>
+                                            <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                                                <h6 id="item-price">44.00 رس</h6>
+                                            </div>
+                                            <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                                                <a id="remove-item" href="#!" class="text-muted">
+                                                    <i class="fas fa-times"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 shadow rounded-2">
+                                    <div class="p-5">
+                                        <h3 class="fw-bold mb-5 mt-2 pt-1">ملخص الطلب</h3>
+
+                                        <div class="d-flex justify-content-between mb-4">
+                                            <h5 class="text-uppercase">مجموع منتجات</h5>
+                                            <h5 id="subtotal-price">44.00 رس</h5>
+                                        </div>
+
+                                        <h5 class="text-uppercase mb-3">هل لديك كود خصم</h5>
+
+                                        <div class="mb-5">
+                                            <div class="form-outline position-relative">
+                                                <input id="coupon-input" type="text" placeholder="ادخل كودالخصم" class="form-control form-control-lg"/>
+                                                <button id="apply-coupon" class="btn btn-outline-success p-2 position-absolute translate-middle-y top-50 start-0">
+                                                    اضافة
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <hr class="my-4"/>
+
+                                        <div class="d-flex justify-content-between">
+                                            <h5 class="text-uppercase"> الاجمالي</h5>
+                                            <h5 id="total-price">44.00 رس</h5>
+                                        </div>
+                                        <p class="text-secondary"> الاسعار الشاملةللضريبة</p>
+
+                                        <button id="checkout-btn" type="button" class="btn btn-success w-100">
+                                            اتمام الطلب
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
