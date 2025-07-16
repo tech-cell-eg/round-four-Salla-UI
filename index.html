@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/all.min.css">
-     <link rel="stylesheet" href="./productDetails/ProductDetails.css">
-    <link rel="stylesheet" href="./productDetails/p-details.css">
-    <link rel="stylesheet" href="./css/css.css">
-    <link rel="stylesheet" href="Cart/cart.css">
-    <link rel="icon" href="imgs/logo.png">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/all.min.css" />
+    <link rel="stylesheet" href="./productDetails/ProductDetails.css" />
+    <link rel="stylesheet" href="./productDetails/p-details.css" />
+    <link rel="stylesheet" href="./css/css.css" />
+    <link rel="stylesheet" href="./project/css/project.css" />
+    <link rel="stylesheet" href="Cart/cart.css" />
+    <link rel="icon" href="imgs/logo.png" />
     <title>منصة سلة</title>
-</head>
-<body>
-    
-      <nav>
+  </head>
+  <body>
+    <nav>
       <div class="py-2">
         <!-- First Nav - Top Bar -->
         <div class="firstNav basic-color p-2">
@@ -124,9 +124,10 @@
                     ></i>
                   </span>
                   <span class="px-0 ms-2">
-              <a class="nav-link " href="#" onclick="renderCart()">سلة مشتريات</a>
+                    <a class="nav-link" href="#" onclick="renderCart()"
+                      >سلة مشتريات</a
+                    >
 
-                     
                     <p class="mb-0" id="numOfItem">1,200رس</p>
                   </span>
                 </div>
@@ -151,7 +152,10 @@
             </div>
 
             <div class="d-lg-none">
-              <select class="form-select bg-black text-white border-0">
+              <select
+                class="form-select bg-black text-white border-0"
+                title="اختر فئة المنتجات"
+              >
                 <option selected>كل المنتجات</option>
                 <option>الكترونيات</option>
                 <option>موبيلات</option>
@@ -169,7 +173,7 @@
       </div>
     </nav>
     <div id="root"></div>
-     <footer>
+    <footer>
       <div class="first basic-color">
         <div class="container">
           <div class="row d-flex align-items-center">
@@ -293,7 +297,8 @@
 
     <script src="./js/js.js"></script>
     <script src="./Cart/cart.js"></script>
+    <script src="./project/js/project.js"></script>
     <script src="./js/bootstrap.bundle.min.js"></script>
     <script src="./productDetails/ProductDetails.js"></script>
-</body>
+  </body>
 </html>

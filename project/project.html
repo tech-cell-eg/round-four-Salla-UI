@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>متجر إلكتروني</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/project.css" />
+  </head>
+  <body>
+    <section class="products-section">
+      <div class="container">
+        <div class="filter-sidebar">
+          <h3><i class="fas fa-filter"></i> تصفية المنتجات</h3>
+
+          <div class="filter-group">
+            <h4>الفئات</h4>
+            <div id="categories-container">
+              <!-- Loaded by JS -->
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <h4>نطاق السعر (ر.س)</h4>
+            <div class="price-range">
+              <input
+                type="range"
+                id="price-slider"
+                min="0"
+                max="2000"
+                value="2000"
+                title="input"
+              />
+              <div class="price-values">
+                <span>0</span>
+                <span id="max-price">2000</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <h4>التقييم</h4>
+            <div class="rating-options">
+              <div class="filter-option">
+                <input type="checkbox" id="rating-5" checked title="input" />
+                <label for="rating-5">
+                  <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                  </div>
+                </label>
+              </div>
+              <div class="filter-option">
+                <input type="checkbox" id="rating-4" checked title="input" />
+                <label for="rating-4">
+                  <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                  </div>
+                </label>
+              </div>
+              <div class="filter-option">
+                <input type="checkbox" id="rating-3" checked title="input" />
+                <label for="rating-3">
+                  <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <h4>العلامات التجارية</h4>
+            <div id="brands-container">
+              <!-- Loaded by JS -->
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <h4>خصومات</h4>
+            <div class="filter-option">
+              <input type="checkbox" id="discount" />
+              <label for="discount">منتجات مخفضة</label>
+            </div>
+          </div>
+
+          <div class="filter-buttons">
+            <button id="apply-filters" class="btn">تطبيق الفلاتر</button>
+            <button id="reset-filters" class="btn btn-outline">
+              إعادة تعيين
+            </button>
+          </div>
+
+          <div class="filter-image">
+            <img src="imgs/phone.png" alt="عروض خاصة" />
+          </div>
+        </div>
+
+        <div class="products-container">
+          <div class="products-header">
+            <h3>منتجاتنا</h3>
+            <div class="view-options">
+              <button id="grid-view" class="view-btn active" title="button">
+                <i class="fas fa-th-large"></i>
+              </button>
+              <button id="list-view" class="view-btn" title="button">
+                <i class="fas fa-list"></i>
+              </button>
+            </div>
+            <div class="sort-options">
+              <label for="sort">ترتيب حسب:</label>
+              <select id="sort">
+                <option value="default">الافتراضي</option>
+                <option value="price-low">السعر: من الأقل للأعلى</option>
+                <option value="price-high">السعر: من الأعلى للأقل</option>
+                <option value="rating">الأعلى تقييماً</option>
+                <option value="discount">أكبر خصم</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="products-list grid-view" id="products-list">
+            <!-- Products will be loaded here -->
+          </div>
+
+          <button id="load-more" class="btn load-more-btn">
+            عرض المزيد <i class="fas fa-chevron-down"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <script src="js/project.js"></script>
+  </body>
+</html>
