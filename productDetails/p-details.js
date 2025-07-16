@@ -1,3 +1,5 @@
+(function(){
+
 let reviews = []; 
 fetch('https://dummyjson.com/products/1')
   .then(res => res.json())
@@ -40,9 +42,9 @@ function show_reviews() {
     return stars;
   })()}
 </div>
-
+ <p class="mt-2 mb-0">${reviews_num[i].comment}</p>
           <div class="float-end text-muted date ">${reviews_num[i].date}</div>
-          <p class="mt-2 mb-0">${reviews_num[i].comment}</p>
+         
         </div>
       </div>
     `;
@@ -133,4 +135,4 @@ reviews.unshift(new_review);
 show_reviews();
 
 
-}
+}})()
