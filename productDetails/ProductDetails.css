@@ -1,5 +1,12 @@
+*{
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+}
 .first-section .diff-color,.pro-num{
   color: #62D0B6;
+  padding: 0;
 }
 .fire-color{
   color: #F55157;
@@ -7,14 +14,14 @@
 .dark-color{
   color: #666666;
 }
-.fa-star {
+.details-inf .fa-star {
   position: relative;
   display: inline-block;
   color: #ccc; 
   direction: rtl;
 }
 
-.fa-star .fill {
+.details-inf .fa-star .fill {
   position: absolute;
   top: 0;
   right: 0; 
@@ -25,7 +32,7 @@
   direction: ltr; 
 }
 
-.fa-star .fill::before {
+.details-inf .fa-star .fill::before {
   content: "\f005"; 
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
@@ -50,10 +57,12 @@
 
 #imagesCol .product-details-images img{
   border: 1px solid #EEEEEE;
+  cursor: pointer;
 }
 
 #product-details .main-image img{
    border: 1px solid #EEEEEE;
+   cursor: pointer;
 }
 
 #product-details .product-inf{
@@ -81,6 +90,11 @@
    display: flex;
    align-items: center;
    justify-content: center;
+   cursor: pointer;
+   transition: all 0.8s;
+}
+#product-details .product-inf .icon-plus:hover{
+ background-color: #ece5e5;
 }
 #product-details .product-inf .icon-txt{
   border: 1px solid #62D0B6;
@@ -109,11 +123,13 @@
    display: flex;
    align-items: center;
    justify-content: center;
+   cursor: pointer;
 }
 
 #product-details .total-details .details-count{
    border: 1px solid #EEEEEE;
    border-radius: 5px;
+
 }
 
 #product-details .total-details .details-count .count-num{
@@ -126,7 +142,7 @@
      padding: 20px;
      font-size: 14px;
      color: #333333;
-      transition: all 0.5s ease-in-out;
+     transition: all 0.5s ease-in-out;
 }
 #product-details .total-details .details-count i:hover{
   background-color: #d7d5d5;
@@ -166,6 +182,7 @@
   padding: 16px;
    border: 1px solid #EEEEEE;
    border-radius: 5px;
+   cursor: pointer;
 }
 .w-90{
   width: 90px;
@@ -180,7 +197,7 @@
 color: #62D0B6;
 font-size: 13px;
 }
-/* =============================================================== */
+/* ================================ Media Query ==================================== */
 @media (max-width: 1200px){
   .share-pro{
     display: block;
@@ -190,6 +207,7 @@ font-size: 13px;
     white-space: nowrap;  
   }
 }
+
 @media (max-width: 1000px) {
 .share-pro{
     display: inline;
@@ -231,5 +249,51 @@ font-size: 13px;
     width: 100%;
     margin-top: 20px;
   }
+}
+
+@media (max-width: 770px){
+  .share-pro{
+    display: block;
+    padding-top: 8px;
+  }
+  .details-content .details-item{
+    margin-bottom: 10px;
+ }
+}
+
+@media (max-width: 550px){
+  .fav{
+    display: block;
+    padding-top: 8px;
+  }
+ #product-details .total-details{
+  flex-direction: column;
+}
+ #product-details .total-details .text-count{
+  font-size: 20px;
+  font-weight: 700;
+}
+#product-details .total-details .details-count .count-num, #product-details .total-details .details-count i{
+  padding:30px;
+  font-weight: 700;
+  font-size: 20px;
+}
+ #product-details .total-details .detailes-price{
+  padding-top: 20px;
+   font-size: 20px;
+  font-weight: 700;
+}
+#product-details .details-buttons {
+  flex-direction: column;
+}
+#product-details .details-buttons button{
+  width: 100%;
+  margin-top: 10px;
+  font-size: 22px;
+}
+.details-content .details-item p, .details-content .details-item span{
+ 
+  font-size: 20px;
+}
 }
 

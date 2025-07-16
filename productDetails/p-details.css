@@ -1,4 +1,5 @@
        .main{
+        margin-top: 10vh;
         direction: rtl;
             font-family: 'Cairo', sans-serif;
             background-color: #f9f9f9;
@@ -59,10 +60,9 @@
             margin: 20px 0;
         }
 
-        .double-images img {
-            flex: 1 1 48%;
-        }
-
+       .double-images img {
+    width: 49%;
+}
         .image-right {
             float: right;
             width: 200px;
@@ -94,6 +94,13 @@
 .review-box img {
     width: 70px;
     height: 70px;
+}
+.review-box{position: relative;}
+.date {
+   
+    position: absolute;
+    left: 0%;
+    top: 20%;
 }
 /* 
  */

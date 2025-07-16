@@ -1,6 +1,9 @@
-function initDetails(){
+function initDetails(id){
+// const searchParams = location.search; 
+// const params = new URLSearchParams(searchParams);
+// const id = params.get("productId");
 async function getapi() {
-    const api = await fetch(`https://dummyjson.com/products/15`);   
+    const api = await fetch(`https://dummyjson.com/products/7`);   
     let response = await api.json();
     let data = response;
     console.log(data);
@@ -34,7 +37,7 @@ getapi()
                             (${productData.reviews.length})
                             تقييمات
                         </span>
-                        <span class="ps-4 pe-5"><i class="fa-regular fa-heart ps-2"></i>أضف للمفضله</span>
+                        <span class="ps-md-4 pe-md-5 fav"><i class="fa-regular fa-heart ps-2"></i>أضف للمفضله</span>
                         <span class="share-pro"><i class="fa-solid fa-share-nodes ps-2"></i>مشاركه المنتج</span>
                     </div>
                     <p class="dark-color">${productData.description}</p>
@@ -83,23 +86,23 @@ getapi()
                    </div>
                    <div class="total-details mt-4">
                     <div class="count-inf">
-                    <span class="ms-3">  حدد الكمية</span>
+                    <span class="ms-3 text-count">  حدد الكمية</span>
                     <div class="details-count">
-                    <span><i class="fa-solid fa-plus" onclick="countIncrease()"></i></span>
+                    <span class="p-0"><i class="fa-solid fa-plus" onclick="countIncrease()"></i></span>
                     <span class="count-num">1</span>
-                    <span><i class="fa-solid fa-minus" onclick="countMinus()"></i></span>
+                    <span class="p-0"><i class="fa-solid fa-minus" onclick="countMinus()"></i></span>
                   </div>
-              </div>
+                  </div>
                   <div class="detailes-price">
                   <h4>${productData.price} ر.س</h4>
                   </div> 
                   </div>
                   <div class="details-buttons mt-4">
-                        <button class="btn">
+                        <button class="btn" onclick="openCart()">
                         <i class="fa-solid fa-cart-shopping"></i>
                         الشراء السريع
                     </button>
-                   <button class="btn btn-2">
+                   <button class="btn btn-2" onclick="addMyFav(${productData.id},'${productData.title}','${productData.category}',${productData.price},'${productData.thumbnail}')">
                     <i class="fa-solid fa-cart-shopping"></i>
                     أضف للسلة
                    </button>
@@ -108,6 +111,7 @@ getapi()
                    `
     document.getElementById("product-details").innerHTML = DataProduct;
     
+//! ========================> Render Stars ============================>
 
 function renderPreciseStars(rating) {
   const stars = document.querySelectorAll('.details-inf .fa-star .fill');
@@ -126,7 +130,6 @@ function renderPreciseStars(rating) {
 }
 
 
-
     renderPreciseStars(productData.rating);
 
 //! ========================> Data Column ============================>
@@ -140,7 +143,7 @@ function renderPreciseStars(rating) {
     }
     document.getElementById('imagesCol').innerHTML = dataColumn;
 
-     //! ========================> Display Image  ============================>
+//! ========================> Display Image  ============================>
 
     const mainImg = document.getElementById("globalImage");
     const thumbs  = document.querySelectorAll("#imagesCol .thumb");
@@ -176,20 +179,43 @@ function renderPreciseStars(rating) {
     }
 
 
+//! ========================> Add To Cart  ============================>
 
+window.addMyFav = (id, title, category, price, src_img) => {
+    let favoriteProducts = JSON.parse(localStorage.getItem("favoriteProducts")) || [];
 
+    const exists = favoriteProducts.find((movie) => movie.id && movie.id === id);
+    if (!exists) {
+        favoriteProducts.push({ id, title, category, price, src_img });
+        console.log(favoriteProducts);
+        localStorage.setItem("favoriteProducts", JSON.stringify(favoriteProducts));
+    }
+
+};    
+
+//! ========================> Open Cart  ============================>
+
+window.openCart = () => {
+    renderCart()
+};
 
 //?------------------------------------------------------------------
 
-fetch('p-details.html')
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById('nada-section').innerHTML = html;
-    });
+
+fetch("../productDetails/p-details.html")
+  .then((res) => res.text())
+  .then((html) => {
+    document.getElementById("nada-section").innerHTML = html;
+    const myScript = document.createElement("script");
+    myScript.src = "productDetails/p-details.js";
+    document.body.appendChild(myScript);
+  });
+
+
 
 }
 
-function renderDetails(){
+function renderDetails(proId){
     fetch("../productDetails/ProductDetails.html")
     .then((response) => response.text())
     .then((html) => {
@@ -198,7 +224,7 @@ function renderDetails(){
         const script = document.createElement("script");
         script.src = "../productDetails/ProductDetails.js";
         script.onload = () => {
-            initDetails();
+            initDetails(proId);
         };
         document.body.appendChild(script);
     });
