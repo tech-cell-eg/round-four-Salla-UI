@@ -132,4 +132,6 @@
             .double-images img {
                 width: 100%;
             }
+               .nav-tabs .nav-link {
+    font-size: 13px;}
         }
