@@ -1,3 +1,31 @@
+function initProduct() {
+  let aboutElement = document.getElementById("product");
+}
+function renderProduct() {
+  fetch("../../Products/Product.html")
+    .then((response) => response.text())
+    .then((html) => {
+      // ✅ Inject HTML first
+      root.innerHTML = html;
+
+      // ✅ Load Product.js AFTER HTML is added
+      const script = document.createElement("script");
+      script.src = "../../Products/js/Product.js";
+      script.onload = () => {
+        console.log("Product.js loaded");
+
+        // ✅ Call init() ONLY after Product.js is loaded
+        if (typeof init === "function") {
+          init();
+        } else {
+          console.error("init() function not found in Product.js");
+        }
+      };
+      document.body.appendChild(script);
+    })
+    .catch((err) => console.error("Error loading Product.html:", err));
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   // DOM elements
   const productsList = document.getElementById("products-list");
@@ -31,36 +59,45 @@ document.addEventListener("DOMContentLoaded", function () {
     resetFilters(); // Start with all filters reset
   }
 
-  // Fetch products from DummyJSON API
+  // }
   async function fetchProducts() {
     try {
       // Show loading state
       productsList.innerHTML = `
-        <div class="no-products-found">
-          <i class="fas fa-spinner fa-spin"></i>
-          <p>جاري تحميل المنتجات...</p>
-        </div>
-      `;
+      <div class="loading-spinner">
+        <i class="fas fa-spinner fa-spin"></i>
+        <p>جاري تحميل المنتجات...</p>
+      </div>
+    `;
 
-      // Fetch products from DummyJSON
+      // Fetch products from API
       const response = await fetch("https://dummyjson.com/products?limit=15");
+
+      // Log response status info
+      console.log("Fetch response status:", response.status);
+      console.log("Fetch response OK:", response.ok);
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
       const data = await response.json();
       allProducts = data.products;
+      console.log(allProducts);
 
-      // Process products data
+      // Process and display products
       processProductsData();
-
-      // Extract and render filter options
       extractAndRenderFilterOptions();
+      applyFilters(); // Apply initial filters after loading
     } catch (error) {
       console.error("Error fetching products:", error);
       productsList.innerHTML = `
-        <div class="no-products-found">
-          <i class="fas fa-exclamation-triangle"></i>
-          <p>حدث خطأ أثناء تحميل المنتجات</p>
-          <p>يرجى المحاولة مرة أخرى</p>
-        </div>
-      `;
+      <div class="no-products-found">
+        <i class="fas fa-exclamation-triangle"></i>
+        <p>حدث خطأ أثناء تحميل المنتجات</p>
+        <p>يرجى المحاولة مرة أخرى</p>
+      </div>
+    `;
     }
   }
 
@@ -209,8 +246,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.addEventListener("click", function (e) {
       if (e.target.classList.contains("product-details")) {
         const productId = e.target.getAttribute("data-id");
-        // window.location.href = `product-details.html?id=${productId}`;
-        renderDetails(productId);
+        window.location.href = `product-details.html?id=${productId}`;
       }
     });
   }
