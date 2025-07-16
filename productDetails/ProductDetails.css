@@ -7,26 +7,46 @@
 .dark-color{
   color: #666666;
 }
-/* .fill{
-    background-color: #FFC62A;
-} */
-/* نجمة عادية */
-.rating-stars .star {
-  font-size: 20px;
-  color: #ddd;                /* فارغة */
+.fa-star {
   position: relative;
   display: inline-block;
+  color: #ccc; 
+  direction: rtl;
 }
 
-/* طبقة الملء */
-.rating-stars .star::before {
-  content: "★";               /* نفس الرمز */
+.fa-star .fill {
   position: absolute;
-  inset: 0;
-  color: #f5b301;             /* لون النجمة المملوءة */
-  width: 0;                   /* سيُضبط بالـ JS */
+  top: 0;
+  right: 0; 
+  height: 100%;
   overflow: hidden;
+  color: gold;
+  pointer-events: none;
+  direction: ltr; 
 }
+
+.fa-star .fill::before {
+  content: "\f005"; 
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  right: 0; 
+}
+
+
+.thumb.active-thumb {
+  outline: 2px solid #62D0B6;
+  opacity: 1;
+}
+.thumb {
+  cursor: pointer;
+  opacity: 0.6;
+  transition: all 0.2s ease;
+}
+.thumb:hover {
+  opacity: 1;
+}
+
 
 #imagesCol .product-details-images img{
   border: 1px solid #EEEEEE;
@@ -68,6 +88,7 @@
   color: #62D0B6;
   border-radius: 5px;
   transition: all 1s;
+  cursor: pointer;
 }
 #product-details .product-inf .icon-txt:hover{
   background-color:#62D0B6;
@@ -159,3 +180,56 @@
 color: #62D0B6;
 font-size: 13px;
 }
+/* =============================================================== */
+@media (max-width: 1200px){
+  .share-pro{
+    display: block;
+    padding-top: 8px;
+  }
+  #product-details .product-inf .icon-txt span{
+    white-space: nowrap;  
+  }
+}
+@media (max-width: 1000px) {
+.share-pro{
+    display: inline;
+    
+  }
+  #product-details .row {
+    display: flex;
+    flex-direction: column;
+  }
+
+  
+  .main-image-container {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  #imagesCol {
+    width: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .main-image {
+    flex: 1;
+  }
+
+  .main-image img {
+    width: 100%;
+    height: auto;
+  }
+
+  
+  #product-details .col-md-6 {
+    width: 100%;
+    margin-top: 20px;
+  }
+}
+
