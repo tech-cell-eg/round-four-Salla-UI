@@ -1,32 +1,5 @@
 function initProduct() {
   let aboutElement = document.getElementById("product");
-}
-function renderProduct() {
-  fetch("../../Products/Product.html")
-    .then((response) => response.text())
-    .then((html) => {
-      // ✅ Inject HTML first
-      root.innerHTML = html;
-
-      // ✅ Load Product.js AFTER HTML is added
-      const script = document.createElement("script");
-      script.src = "../../Products/js/Product.js";
-      script.onload = () => {
-        console.log("Product.js loaded");
-
-        // ✅ Call init() ONLY after Product.js is loaded
-        if (typeof init === "function") {
-          init();
-        } else {
-          console.error("init() function not found in Product.js");
-        }
-      };
-      document.body.appendChild(script);
-    })
-    .catch((err) => console.error("Error loading Product.html:", err));
-}
-
-document.addEventListener("DOMContentLoaded", function () {
   // DOM elements
   const productsList = document.getElementById("products-list");
   const priceSlider = document.getElementById("price-slider");
@@ -53,11 +26,6 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   // Initialize the page
-  async function init() {
-    await fetchProducts();
-    setupEventListeners();
-    resetFilters(); // Start with all filters reset
-  }
 
   // }
   async function fetchProducts() {
@@ -100,7 +68,12 @@ document.addEventListener("DOMContentLoaded", function () {
     `;
     }
   }
-
+  async function init() {
+    console.log("init function is loading");
+    await fetchProducts();
+    setupEventListeners();
+    resetFilters(); // Start with all filters reset
+  }
   // Process products data for our needs
   function processProductsData() {
     allProducts = allProducts.map((product) => {
@@ -531,15 +504,42 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="product-actions">
                 <button class="product-details" data-id="${
                   product.id
-                }">تفاصيل المنتج</button>
+                } ">تفاصيل المنتج</button>
                 <button class="wishlist-btn"><i class="far fa-heart"></i></button>
             </div>
         </div>
     `;
+
+    document.querySelectorAll(".product-details").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const productId = btn.getAttribute("data-id");
+        showProductDetails(productId);
+      });
+    });
 
     productsList.appendChild(productElement);
   }
 
   // Initialize the page
   init();
-});
+}
+function renderProduct() {
+  fetch("../../Products/Product.html")
+    .then((response) => response.text())
+    .then((html) => {
+      // ✅ Inject HTML first
+      root.innerHTML = html;
+
+      // ✅ Load Product.js AFTER HTML is added
+      const script = document.createElement("script");
+      script.src = "../../Products/js/Product.js";
+      script.onload = () => {
+        console.log("Product.js loaded");
+
+        // ✅ Call init() ONLY after Product.js is loaded
+        initProduct();
+      };
+      document.body.appendChild(script);
+    })
+    .catch((err) => console.error("Error loading Product.html:", err));
+}
