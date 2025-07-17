@@ -2,7 +2,7 @@ function initDetails(id){
 // const searchParams = location.search; 
 // const params = new URLSearchParams(searchParams);
 // const id = params.get("productId");
-async function getapi() {
+async function getapi() {   
     const api = await fetch(`https://dummyjson.com/products/7`);   
     let response = await api.json();
     let data = response;
@@ -112,6 +112,7 @@ getapi()
     document.getElementById("product-details").innerHTML = DataProduct;
     
 //! ========================> Render Stars ============================>
+//! ========================> Render Stars ============================>
 
 function renderPreciseStars(rating) {
   const stars = document.querySelectorAll('.details-inf .fa-star .fill');
@@ -201,20 +202,22 @@ window.openCart = () => {
 
 //?------------------------------------------------------------------
 
+fetch('../productDetails/p-details.html')
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('nada-section').innerHTML = html;
 
-fetch("../productDetails/p-details.html")
-  .then((res) => res.text())
-  .then((html) => {
-    document.getElementById("nada-section").innerHTML = html;
-    const myScript = document.createElement("script");
-    myScript.src = "productDetails/p-details.js";
-    document.body.appendChild(myScript);
-  });
-
-
+        const script = document.createElement("script");
+        // script.src = "../productDetails/p-details.js";
+        script.onload = () => {
+            initDetails();
+        };
+        document.body.appendChild(script);
+    });
 
 }
 
+function renderDetails(proId){
 function renderDetails(proId){
     fetch("../productDetails/ProductDetails.html")
     .then((response) => response.text())
@@ -224,6 +227,7 @@ function renderDetails(proId){
         const script = document.createElement("script");
         script.src = "../productDetails/ProductDetails.js";
         script.onload = () => {
+            initDetails(proId);
             initDetails(proId);
         };
         document.body.appendChild(script);
