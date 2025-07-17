@@ -1,6 +1,9 @@
-function initDetails(){
+function initDetails(id){
+// const searchParams = location.search; 
+// const params = new URLSearchParams(searchParams);
+// const id = params.get("productId");
 async function getapi() {
-    const api = await fetch(`https://dummyjson.com/products/10`);   
+    const api = await fetch(`https://dummyjson.com/products/7`);   
     let response = await api.json();
     let data = response;
     console.log(data);
@@ -108,6 +111,7 @@ getapi()
                    `
     document.getElementById("product-details").innerHTML = DataProduct;
     
+//! ========================> Render Stars ============================>
 
 function renderPreciseStars(rating) {
   const stars = document.querySelectorAll('.details-inf .fa-star .fill');
@@ -203,7 +207,7 @@ fetch('../productDetails/p-details.html')
       document.getElementById('nada-section').innerHTML = html;
 
         const script = document.createElement("script");
-        script.src = "../productDetails/p-details.js";
+        // script.src = "../productDetails/p-details.js";
         script.onload = () => {
             initDetails();
         };
@@ -212,7 +216,7 @@ fetch('../productDetails/p-details.html')
 
 }
 
-function renderDetails(){
+function renderDetails(proId){
     fetch("../productDetails/ProductDetails.html")
     .then((response) => response.text())
     .then((html) => {
@@ -221,7 +225,7 @@ function renderDetails(){
         const script = document.createElement("script");
         script.src = "../productDetails/ProductDetails.js";
         script.onload = () => {
-            initDetails();
+            initDetails(proId);
         };
         document.body.appendChild(script);
     });

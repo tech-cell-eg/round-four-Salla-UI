@@ -209,7 +209,8 @@ document.addEventListener("DOMContentLoaded", function () {
     document.addEventListener("click", function (e) {
       if (e.target.classList.contains("product-details")) {
         const productId = e.target.getAttribute("data-id");
-        window.location.href = `product-details.html?id=${productId}`;
+        // window.location.href = `product-details.html?id=${productId}`;
+        renderDetails(productId);
       }
     });
   }
